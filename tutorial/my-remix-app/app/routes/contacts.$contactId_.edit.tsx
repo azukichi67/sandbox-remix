@@ -1,5 +1,4 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { Form, redirect, useLoaderData, useNavigate } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
@@ -19,7 +18,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   if (!contact) {
     throw new Response("Not Found", { status: 404 });
   }
-  return json({ contact });
+  return { contact };
 };
 
 export default function EditContact() {

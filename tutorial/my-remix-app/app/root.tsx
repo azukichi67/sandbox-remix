@@ -1,6 +1,5 @@
 import {
   Form,
-  json,
   Links,
   Meta,
   NavLink,
@@ -25,7 +24,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
   const contacts = await getContacts(q);
-  return json({ contacts, q });
+  return { contacts, q };
 };
 
 export const action = async () => {
@@ -42,7 +41,7 @@ export default function App() {
     new URLSearchParams(navigation.location.search).has("q");
 
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
